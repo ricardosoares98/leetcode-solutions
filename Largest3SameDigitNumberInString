@@ -9,7 +9,7 @@ Note:
 
 A substring is a contiguous sequence of characters within a string.
 There may be leading zeroes in num or a good integer. */
-public class Largest3SameDigitNumberInString
+public class Solution
 {
     public string LargestGoodInteger(string num)
     {

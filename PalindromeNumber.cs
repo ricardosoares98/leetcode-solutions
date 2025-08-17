@@ -1,7 +1,7 @@
 /*
 Given an integer x, return true if x is a palindrome, and false otherwise.
 */
-public class PalindromeNumber {
+public class Solution {
     public bool IsPalindrome(int x)
     {
         if (x < 0) {
