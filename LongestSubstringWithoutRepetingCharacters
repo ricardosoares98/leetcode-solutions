@@ -1,0 +1,32 @@
+public class LongestSubstringWithoutRepetingCharacters
+{
+    public int LengthOfLongestSubstring(string s)
+    {
+
+        var currentString = "";
+        var highestNumber = 0;
+
+        foreach (char c in s)
+        {
+            if (!currentString.Contains(c))
+            {
+                currentString = currentString + c.ToString();
+            }
+            else
+            {
+                if (highestNumber < currentString.Length)
+                    highestNumber = currentString.Length;
+
+
+                var duppedValueIndex = currentString.IndexOf(c);
+        
+                currentString = currentString.Substring(duppedValueIndex + 1) + c.ToString();
+            }
+        }
+
+        if (highestNumber < currentString.Length)
+            highestNumber = currentString.Length;
+
+        return highestNumber;
+    }
+}
