@@ -1,0 +1,22 @@
+public class Solution {
+    public int RemoveDuplicates(int[] nums)
+    {
+        var nonRepeteadNums = new List<int>();
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (!nonRepeteadNums.Contains(nums[i]))
+            {
+                nonRepeteadNums.Add(i);
+            }
+            else
+            {
+                nums[i] = 111;
+            }
+        }
+
+        nums = nums.OrderBy(x => x).ToArray();
+
+        return nums.Length;
+    }
+}

@@ -1,0 +1,48 @@
+public class Solution
+{
+    public int NumSubmat(int[][] mat)
+    {
+        var count = 0;
+        var consecutiveOnes = new List<int>();
+        var consecutiveOnesColumn = new List<int>();
+        var lastOneColumn = 0;
+
+        for (int i = 0; i < mat.Length; i++)
+        {
+            consecutiveOnes = 0;
+
+            //Count by line
+            for (int k = 0; k < mat[i].Length; k++)
+            {
+                if (mat[i][k] == 1)
+                {
+                    count++;
+                    consecutiveOnes.Add(1);
+
+                    //same column
+                    if (lastOneColumn == k)
+                    {
+                        consecutiveOnesColumn.Add(1);
+                    }
+
+                }
+                else
+                {
+                    if (consecutiveOnes.Count() > 1)
+                    {
+                        for (int i = 1; i <= consecutiveOnes.Count(); i++)
+                        {
+                            count += i;
+                        }
+                    }
+
+                    //New column
+                    if (lastOneColumn != i)
+                    {
+
+                    }
+                }
+            }
+        }
+    }
+}

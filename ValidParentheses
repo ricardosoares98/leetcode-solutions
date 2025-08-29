@@ -1,0 +1,24 @@
+public class Solution {
+    public bool IsValid(string s) {
+        var buffer = new List<char>();
+
+        foreach (char c in s) {
+            if (c == '(' || c == '[' || c == '{') {
+                buffer.Add(c); // push
+            } else {
+                if (buffer.Count == 0) return false; // no opening bracket
+
+                char last = buffer[buffer.Count - 1]; // peek last
+                if ((c == ')' && last != '(') ||
+                    (c == ']' && last != '[') ||
+                    (c == '}' && last != '{')) {
+                    return false;
+                }
+
+                buffer.RemoveAt(buffer.Count - 1); // pop
+            }
+        }
+
+        return buffer.Count == 0;
+    }
+}
